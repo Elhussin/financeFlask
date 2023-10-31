@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{Home}}
+{% endblock %}
+
+{% block main %}
+   <h1>  {{w}} : {{mesag}} </h1>
+
+    <!-- <a class="btn btn-primary" > Update </a> -->
+    <a class="btn btn-primary"  href="/update">Update</a>
+</form>
+
+   <table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shers</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for date in summary %}
+            <tr>
+
+
+                <td id="{{date["id"]}}">{{ date.symbol }}</td>
+                <td id="{{date["id"]}}">{{ date["symbol_name"] }}</td>
+                <td id="{{date["id"]}}">{{ date["sum(shares)"] }}</td>
+                <td id="{{date["id"]}}">{{ date["price"] }}</td>
+                <td id="{{date["id"]}}">{{ date['total'] }}</td>
+                <td><a class="btn btn-primary"  href="/quote">Quote</a></td>
+                <td><a class="btn btn-primary"  href="/buy">buy</a></td>
+                <td><a class="btn btn-primary"  href="/sell">sell</a></td>
+
+            </tr>
+        {% endfor %}
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+            <td>{{cash}}</td>
+
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="4">Total</td>
+            <td>{{wallet }}</td>
+
+        </tr>
+
+    </tbody>
+</table>
+
+{% endblock %}

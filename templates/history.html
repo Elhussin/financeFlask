@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+   h2>History</h2>
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+
+      
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shers</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for date in hisory %}
+                    <tr>
+
+
+                        <td id="{{date["id"]}}">{{ date.symbol }}</td>
+                        <td id="{{date["id"]}}">{{ date["shares"] }}</td>
+                        <td id="{{date["id"]}}">{{ date["price"] }}</td>
+                        <td id="{{date["id"]}}">{{ date["date_time"]}}</td>
+
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

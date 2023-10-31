@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update
+{% endblock %}
+
+{% block main %}
+<h1>Update  Informatian</h1>
+    <form action="/update" method="post">
+
+
+        User Name  <input class="form-control mx-auto w-auto"  name="username"  type="text"   value="{{user_datieal[0]['username']}}"   >
+
+        <p>At lest 8 chart</p>
+        Email <input class="form-control mx-auto w-auto"  name="email"  type="email" value="{{ user_datieal[0]['email']}}">
+        Password  <input class="form-control mx-auto w-auto" name="password"  type="password" >
+        <p>'pasword shoud at lest 8 chard with one digit, one upparcase, one lowercase, and special chart $ @ # % & *'
+        </p>
+
+           <button class="btn btn-primary"  type="submit"> Update </button>
+    </form>
+<p>  {{error_maseg}} </p>
+
+{% endblock %}
+
+
+

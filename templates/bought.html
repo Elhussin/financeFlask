@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{stat}}
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+
+        <h2>Bought</h2>
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shers</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for date in total_sell %}
+                    <tr>
+
+
+                        <td id="{{date["id"]}}">{{ date.symbol }}</td>
+                        <td id="{{date["id"]}}">{{ date["symbol_name"] }}</td>
+                        <td id="{{date["id"]}}">{{ date["sum(shares)"] }}</td>
+                        <td id="{{date["id"]}}">{{ date["price"] }}</td>
+                        <td id="{{date["id"]}}">{{ date['sum (total)'] }}</td>
+
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                    <td>{{new_cash}}</td>
+
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Total</td>
+                    <td>{{total_walet }}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
