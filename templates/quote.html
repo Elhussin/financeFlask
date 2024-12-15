@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block main %}
+    <!-- Form to Look Up Quote Based on Symbol -->
     <form action="/quote" method="post">
+        <!-- Symbol Input Field -->
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="symbol" placeholder="Enter Symbol" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="symbol" 
+                   placeholder="Enter Symbol" type="text">
         </div>
 
-        <button class="btn btn-primary" type="submit"> look up </button>
+        <!-- Submit Button to Look Up Quote -->
+        <button class="btn btn-primary" type="submit"> Look Up </button>
     </form>
 
 {% endblock %}

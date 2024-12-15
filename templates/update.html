@@ -5,23 +5,32 @@
 {% endblock %}
 
 {% block main %}
-<h1>Update  Informatian</h1>
+<h1>Update Information</h1>
+    <!-- Update Form -->
     <form action="/update" method="post">
+        
+        <!-- User Name Input -->
+        User Name  
+        <input class="form-control mx-auto w-auto" name="username" type="text" value="{{user_datieal[0]['username']}}">
+        <p>At least 8 characters</p>
 
+        <!-- Email Input -->
+        Email 
+        <input class="form-control mx-auto w-auto" name="email" type="email" value="{{ user_datieal[0]['email']}}">
 
-        User Name  <input class="form-control mx-auto w-auto"  name="username"  type="text"   value="{{user_datieal[0]['username']}}"   >
+        <!-- Password Input -->
+        Password  
+        <input class="form-control mx-auto w-auto" name="password" type="password">
 
-        <p>At lest 8 chart</p>
-        Email <input class="form-control mx-auto w-auto"  name="email"  type="email" value="{{ user_datieal[0]['email']}}">
-        Password  <input class="form-control mx-auto w-auto" name="password"  type="password" >
-        <p>'pasword shoud at lest 8 chard with one digit, one upparcase, one lowercase, and special chart $ @ # % & *'
+        <p>
+            Password should at least 8 characters with one digit, one uppercase letter, one lowercase letter, and special characters such as $ @ # % & *
         </p>
 
-           <button class="btn btn-primary"  type="submit"> Update </button>
+        <!-- Submit Button -->
+        <button class="btn btn-primary" type="submit"> Update </button>
     </form>
-<p>  {{error_maseg}} </p>
+
+    <!-- Error Message Display -->
+    <p>  {{error_maseg}} </p>
 
 {% endblock %}
-
-
-

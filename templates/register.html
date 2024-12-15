@@ -5,18 +5,27 @@
 {% endblock %}
 
 {% block main %}
+    <!-- Registration Form -->
     <form action="/register" method="post">
+        <!-- Username Input -->
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
         </div>
+
+        <!-- Password Input -->
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+        </div>
 
-        </div>
+        <!-- Password Confirmation Input -->
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Re Enter Password" type="password">
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Re-enter Password" type="password">
         </div>
+
+        <!-- Sign Up Button -->
         <button class="btn btn-primary" type="submit">Sign Up</button>
     </form>
+
+    <!-- Display Error Message if Any -->
     {{error_maseg}}
 {% endblock %}

@@ -1,21 +1,62 @@
 {% extends "layout.html" %}
+<!-- Extends the base layout file "layout.html", inheriting its structure (e.g., header, footer). -->
 
 {% block title %}
     Quote
 {% endblock %}
+<!-- Defines the `title` block for the page. The title is set to "Quote" and displayed in the browser's tab. -->
 
 {% block main %}
+<!-- Main content block for the page -->
+
     <form action="/buy" method="post">
+        <!-- A form that sends a POST request to the "/buy" route when submitted.
+             This form allows users to enter stock details for purchasing. -->
+
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Enter Symbol" type="text">
+            <!-- A Bootstrap-styled input container with margin-bottom spacing -->
+            <input 
+                autocomplete="off" 
+                autofocus 
+                class="form-control mx-auto w-auto" 
+                id="symbol" 
+                name="symbol" 
+                placeholder="Enter Symbol" 
+                type="text">
+            <!-- Input field for the stock symbol:
+                 - `autocomplete="off"` disables browser autofill suggestions.
+                 - `autofocus` ensures the input field is focused when the page loads.
+                 - `class="form-control mx-auto w-auto"` applies Bootstrap styling for proper alignment and width.
+                 - `id="symbol"` uniquely identifies the input field (useful for JavaScript or labels).
+                 - `name="symbol"` specifies the variable name sent to the backend.
+                 - `placeholder="Enter Symbol"` provides a hint to the user. -->
         </div>
+
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="select" type="number">
+            <!-- A Bootstrap-styled input container for entering the number of shares -->
+            <input 
+                autocomplete="off" 
+                autofocus 
+                class="form-control mx-auto w-auto" 
+                id="shares" 
+                name="shares" 
+                placeholder="select" 
+                type="number">
+            <!-- Input field for the number of shares:
+                 - `autocomplete="off"` disables browser autofill suggestions.
+                 - `autofocus` ensures focus when navigating the form.
+                 - `class="form-control mx-auto w-auto"` ensures consistent styling with the symbol input field.
+                 - `id="shares"` uniquely identifies the input field.
+                 - `name="shares"` specifies the variable name sent to the backend.
+                 - `placeholder="select"` provides a hint to the user.
+                 - `type="number"` restricts input to numerical values. -->
         </div>
 
         <button class="btn btn-primary" type="submit"> Buy </button>
+        <!-- A Bootstrap-styled submit button:
+             - `class="btn btn-primary"` applies the primary button styling.
+             - `type="submit"` submits the form when clicked. -->
     </form>
 
-
-
 {% endblock %}
+<!-- End of the main content block -->

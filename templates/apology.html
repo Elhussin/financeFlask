@@ -1,10 +1,25 @@
 {% extends "layout.html" %}
+<!-- This line indicates that the template extends a base layout file named "layout.html". 
+     It allows the reuse of common structures like headers, footers, and other layout components. -->
 
 {% block title %}
     Apology
 {% endblock %}
+<!-- This block sets the title for the page to "Apology". 
+     It's placed in the `title` section of the base layout (defined in "layout.html"). -->
 
 {% block main %}
-<!-- https://memegen.link/ -->
-    <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+<!-- Main content of the page -->
+    <!-- Display an apology meme generated using the Memegen API -->
+    <img 
+        alt="{{ top }}" 
+        class="border img-fluid" 
+        src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" 
+        title="{{ top }}"
+    >
+    <!-- The `img` tag generates an image dynamically using a custom text-based meme API.
+         - The `alt` attribute ensures accessibility and displays the text from `{{ top }}` if the image fails to load.
+         - The `src` attribute constructs a URL using the `top` and `bottom` template variables (escaped with `urlencode` for safety).
+         - A fallback image (`alt`) is specified as a parameter, and the width is constrained to 400px.
+         - The `title` attribute adds a tooltip containing the text from `{{ top }}`. -->
 {% endblock %}

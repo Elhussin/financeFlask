@@ -1,16 +1,25 @@
 {% extends "layout.html" %}
+<!-- Extends the base layout file "layout.html". This allows the page to inherit common structures like the header, footer, and other layout components. -->
 
 {% block title %}
-    {{stat}}
+    {{ stat }}
 {% endblock %}
+<!-- Defines the `title` block for the page. The `stat` variable dynamically sets the title of the page, which is passed from the backend. -->
 
 {% block main %}
+<!-- Main content block for the page -->
+
     <div class="section">
+        <!-- Section container for the content -->
 
         <h2>Bought</h2>
+        <!-- Heading for the page, indicating a record of bought items -->
+
         <table class="table table-striped">
+            <!-- A Bootstrap-styled table with alternating row colors for readability -->
 
             <thead>
+                <!-- Table header defining the column names -->
                 <tr>
                     <th>Symbol</th>
                     <th>Name</th>
@@ -19,32 +28,47 @@
                     <th>Total</th>
                 </tr>
             </thead>
+
             <tbody>
-            <!-- TODO: Loop through the database entries to display them in this table -->
+                <!-- Table body to display rows of data -->
+
                 {% for date in total_sell %}
+                <!-- Loop through the `total_sell` variable passed from the backend, which contains transaction data -->
+
                     <tr>
-
-
-                        <td id="{{date["id"]}}">{{ date.symbol }}</td>
-                        <td id="{{date["id"]}}">{{ date["symbol_name"] }}</td>
-                        <td id="{{date["id"]}}">{{ date["sum(shares)"] }}</td>
-                        <td id="{{date["id"]}}">{{ date["price"] }}</td>
-                        <td id="{{date["id"]}}">{{ date['sum (total)'] }}</td>
-
+                        <!-- Each row represents a single transaction -->
+                        <td id="{{date['id']}}">{{ date.symbol }}</td>
+                        <!-- Displays the stock symbol -->
+                        <td id="{{date['id']}}">{{ date["symbol_name"] }}</td>
+                        <!-- Displays the name of the stock -->
+                        <td id="{{date['id']}}">{{ date["SUM(shares)"] }}</td>
+                        <!-- Displays the total number of shares bought -->
+                        <td id="{{date['id']}}">{{ date["price"] }}</td>
+                        <!-- Displays the price per share -->
+                        <td id="{{date['id']}}">{{ date['sum (total)'] }}</td>
+                        <!-- Displays the total cost of the transaction -->
                     </tr>
+
                 {% endfor %}
+                <!-- Ends the loop -->
+
                 <tr>
+                    <!-- Row to display the user's remaining cash balance -->
                     <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                    <td>{{new_cash}}</td>
-
+                    <!-- Aligns the label to the right and spans across 4 columns -->
+                    <td>{{ new_cash }}</td>
+                    <!-- Displays the user's remaining cash balance -->
                 </tr>
+
                 <tr>
+                    <!-- Row to display the user's total wallet value -->
                     <td class="border-0 fw-bold text-end" colspan="4">Total</td>
-                    <td>{{total_walet }}</td>
-
+                    <!-- Aligns the label to the right and spans across 4 columns -->
+                    <td>{{ total_walet }}</td>
+                    <!-- Displays the total value of the user's wallet, including cash and stock values -->
                 </tr>
-
             </tbody>
         </table>
     </div>
 {% endblock %}
+<!-- End of the main content block -->
